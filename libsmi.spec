@@ -3,12 +3,12 @@ Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
 Summary(ru):	Библиотека для доступа к информации SMI MIB
 Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
-Version:	0.4.2
-Release:	2
+Version:	0.4.3
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
-# Source0-md5:	9971096cdb1b21eaca4fd643d0907b1f
+# Source0-md5:	aca6bbeaff025d38c58f26ecbd70b604
 Source1:	%{name}-smi.conf
 Patch0:		%{name}-sysconfdir.patch
 Patch1:		%{name}-am18.patch
@@ -65,7 +65,7 @@ Libsmi - це C б╕бл╕отека, що нада╓ програмам управл╕ння мережею доступ
 Summary:	SMI tools
 Summary(pl):	NarzЙdzia SMI
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description progs
 SMI tools.
@@ -79,7 +79,7 @@ Summary(pl):	Pliki nagЁСwkowe i dokumentacja do libsmi
 Summary(ru):	Хедеры для разработки программ с использованием libsmi
 Summary(uk):	Хедери для розробки програм з використанням libsmi
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for libsmi.
@@ -99,7 +99,7 @@ Summary(pl):	Biblioteki statyczne libsmi
 Group:		Development/Libraries
 Summary(ru):	Статические библиотеки для разработки программ с использованием libsmi
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням libsmi
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libsmi libraries.
