@@ -78,7 +78,7 @@ LDFLAGS="-s"; export LDFLAGS
 	--enable-static \
 	--with-mibdir=%{_datadir}/mibs
 
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
