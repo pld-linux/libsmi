@@ -1,5 +1,7 @@
 Summary:	Structure of Management Information library
 Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
+Summary(ru):	Библиотека для доступа к информации SMI MIB
+Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
 Version:	0.4.0
 Release:	1
@@ -48,6 +50,17 @@ dostЙp do informacji o moduЁach MIB poprzez dobrze zdefiniowane API,
 ukrywaj╠ce brzydkie szczegСЁy szukania i parsowania moduЁСw MIB
 SMIv1/v2.
 
+%description -l ru
+Libsmi - это C библиотека, дающая программам управления сетью доступ к
+информационным модулям MIB посредством хорошо определенного API,
+который прячет неприятные детали поиска и разбора модулей SMIv1/v2
+MIB.
+
+%description -l uk
+Libsmi - це C б╕бл╕отека, що нада╓ програмам управл╕ння мережею доступ
+до ╕нформац╕йних модул╕в MIB через добре визначений API, що прихову╓
+непри╓мн╕ детал╕ пошуку та розбору модул╕в SMIv1/v2 MIB.
+
 %package progs
 Summary:	SMI tools
 Summary(pl):	NarzЙdzia SMI
@@ -63,6 +76,8 @@ NarzЙdzia SMI.
 %package devel
 Summary:	Header files and development documentation for libsmi
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja do libsmi
+Summary(ru):	Хедеры для разработки программ с использованием libsmi
+Summary(uk):	Хедери для розробки програм з використанням libsmi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -72,10 +87,18 @@ Header files and development documentation for libsmi.
 %description devel -l pl
 Pliki nagЁСwkowe i dokumentacja do libsmi.
 
+%description devel -l ru
+Хедеры для разработки программ с использованием libsmi.
+
+%description devel -l uk
+Хедери для розробки програм з використанням libsmi.
+
 %package static
 Summary:	Static libsmi libraries
 Summary(pl):	Biblioteki statyczne libsmi
 Group:		Development/Libraries
+Summary(ru):	Статические библиотеки для разработки программ с использованием libsmi
+Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням libsmi
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -83,6 +106,13 @@ Static libsmi libraries.
 
 %description static -l pl
 Biblioteki statyczne libsmi.
+
+%description static -l ru
+Статические библиотеки для разработки программ с использованием
+libsmi.
+
+%description static -l uk
+Статичн╕ б╕бл╕отеки для розробки програм з використанням libsmi.
 
 %prep
 %setup -q
