@@ -84,7 +84,7 @@ strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
 	COPYING ChangeLog README THANKS TODO \
-	doc/{SMI.ps,draft-irtf-nmrg-sming-00.txt}
+	doc/{SMI.ps,draft-irtf-nmrg-sming-*.txt}
 
 %find_lang %{name}
 
@@ -103,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz doc/{SMI.ps,draft-irtf-nmrg-sming-00.txt}.gz
+%doc *.gz doc/{SMI.ps,draft-irtf-nmrg-sming-*.txt}.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
