@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
 Summary(ru):	Библиотека для доступа к информации SMI MIB
 Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
-Version:	0.4.0
+Version:	0.4.1
 Release:	1
 License:	BSD
 Group:		Libraries
@@ -15,8 +15,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr
 
 %description
 Libsmi is a C library that allows network management applications to
@@ -149,6 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc ANNOUNCE COPYING ChangeLog README THANKS TODO
 %{_sysconfdir}/smi.conf
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/mibs
@@ -160,11 +159,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog README THANKS TODO doc/draft-irtf-nmrg-sming-*.txt
+%doc doc/draft-irtf-nmrg-sming-*.txt
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
-%{_aclocaldir}/*
+%{_aclocaldir}/*.m4
+%{_pkgconfigdir}/*.pc
 %{_mandir}/man3/*
 
 %files static

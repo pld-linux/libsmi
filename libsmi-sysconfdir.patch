@@ -9,14 +9,14 @@
  $HOME/.smirc               user configuration file
  @prefix@/include/smi.h   SMI library header file
  @mibdir@/     SMI module repository directory
---- libsmi-0.3.1/configure.in~	Thu Mar 28 22:28:05 2002
-+++ libsmi-0.3.1/configure.in	Thu Mar 28 22:28:05 2002
+--- libsmi-0.4.1/configure.in~	Thu Mar 28 22:28:05 2002
++++ libsmi-0.4.1/configure.in	Thu Mar 28 22:28:05 2002
 @@ -189,7 +189,7 @@
  AM_PROG_LIBTOOL
  AC_SUBST(LIBTOOL_DEPS)
  
--AC_DEFINE_UNQUOTED(DEFAULT_GLOBALCONFIG, "${prefix}/etc/smi.conf")
-+AC_DEFINE_UNQUOTED(DEFAULT_GLOBALCONFIG, "${sysconfdir}/smi.conf")
- AC_DEFINE(DEFAULT_USERCONFIG, ".smirc")
- 
- if ${CONFIG_SHELL} ./libtool --features | grep "enable static" >/dev/null; then
+-AC_DEFINE_UNQUOTED([DEFAULT_GLOBALCONFIG], "${prefix}/etc/smi.conf",
++AC_DEFINE_UNQUOTED([DEFAULT_GLOBALCONFIG], "${sysconfdir}/smi.conf",
+ [The full pathname of the global configuration file.])
+
+ AC_DEFINE([DEFAULT_USERCONFIG], ".smirc",
