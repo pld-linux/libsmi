@@ -55,7 +55,7 @@ Requires:	%{name} = %{version}
 %description devel
 Header files and development documentation for libsmi.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe i dokumentacja do libsmi.
 
 %package static
@@ -67,7 +67,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static libsmi libraries.
 
-%description -l pl static
+%description static -l pl
 Biblioteki statyczne libsmi.
 
 %prep
