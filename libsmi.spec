@@ -73,6 +73,9 @@ Biblioteki statyczne libsmi.
 %setup -q
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
 %configure \
 	--enable-smi \
 	--enable-sming \
