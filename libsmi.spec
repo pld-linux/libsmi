@@ -1,4 +1,5 @@
 Summary:	Structure of Management Information library
+Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
 Version:	0.2.17
 Release:	1
@@ -13,6 +14,9 @@ Group(ru):	‚…¬Ã…œ‘≈À…
 Group(uk):	‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr
@@ -42,6 +46,12 @@ modules can be checked for syntax and semantic errors. Finally,
 smidump can be used to dump MIB modules. Currently, SMIng and SMIv2
 are supported as output formats, so that SMIv2 <-> SMIng conversions
 are possible.
+
+%description -l pl
+libsmi jest bibliotek± pozwalaj±c± aplikacjom zarz±dzania sieci± na
+dostÍp do informacji o modu≥ach MIB poprzez dobrze zdefiniowane API,
+ukrywaj±ce brzydkie szczegÛ≥y szukania i parsowania modu≥Ûw MIB
+SMIv1/v2.
 
 %package devel
 Summary:	Header files and development documentation for libsmi
