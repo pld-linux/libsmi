@@ -1,7 +1,7 @@
 Summary:	Structure of Management Information library
 Name:		libsmi
-Version:	0.2.16
-Release:	2
+Version:	0.2.17
+Release:	1
 License:	Distributable (see COPYING file)
 Group:		Libraries
 Group(de):	Libraries
@@ -85,9 +85,11 @@ Biblioteki statyczne libsmi.
 %setup -q
 
 %build
+rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
+automake -a -c
 %configure \
 	--enable-smi \
 	--enable-sming \
