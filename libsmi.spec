@@ -1,8 +1,8 @@
 Summary:	Structure of Management Information library
 Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
-Version:	0.3.1
-Release:	3
+Version:	0.4.0
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
@@ -90,7 +90,7 @@ Biblioteki statyczne libsmi.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
@@ -111,9 +111,6 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/smi.conf
 
-gzip -9nf ChangeLog README THANKS TODO \
-	doc/draft-irtf-nmrg-sming-*.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -133,10 +130,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz doc/draft-irtf-nmrg-sming-*.txt.gz
+%doc ChangeLog README THANKS TODO doc/draft-irtf-nmrg-sming-*.txt
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
+%{_aclocaldir}/*
 %{_mandir}/man3/*
 
 %files static
