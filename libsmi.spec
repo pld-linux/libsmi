@@ -1,8 +1,8 @@
 Summary:	Structure of Management Information library
 Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
-Version:	0.2.17
-Release:	2
+Version:	0.3.0
+Release:	1
 License:	distributable (see COPYING file)
 Group:		Libraries
 Group(de):	Libraries
