@@ -1,7 +1,7 @@
 Summary:	Structure of Management Information library
 Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
-Version:	0.3.0
+Version:	0.3.1
 Release:	1
 License:	distributable (see COPYING file)
 Group:		Libraries
@@ -78,7 +78,7 @@ rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure \
 	--enable-smi \
 	--enable-sming \
