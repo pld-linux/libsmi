@@ -1,9 +1,10 @@
 Summary:	Structure of Management Information library
 Name:		libsmi
 Version:	0.2.5
-Release:	1
+Release:	2
 Copyright:	distributable (see COPYING file)
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
@@ -42,6 +43,7 @@ are possible.
 Summary:	Header files and development documentation for libsmi
 Summary(pl):	Pliki nag³ówkowe i dokumentacja do libsmi
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -56,6 +58,7 @@ Pliki nag³ówkowe i dokumentacja do libsmi.
 Summary:	Static libsmi libraries
 Summary(pl):	Biblioteki statyczne libsmi
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -70,7 +73,6 @@ Biblioteki statyczne libsmi.
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-smi \
 	--enable-sming \
@@ -85,10 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
-	ChangeLog README THANKS TODO \
+gzip -9nf ChangeLog README THANKS TODO \
 	doc/draft-irtf-nmrg-sming-*.txt
 
 %clean
