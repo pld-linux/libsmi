@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
 Version:	0.3.1
 Release:	1
-License:	distributable (see COPYING file)
+License:	distributable (see COPYING)
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
