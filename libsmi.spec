@@ -5,13 +5,6 @@ Version:	0.3.0
 Release:	1
 License:	distributable (see COPYING file)
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
@@ -57,13 +50,6 @@ SMIv1/v2.
 Summary:	Header files and development documentation for libsmi
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja do libsmi
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -76,13 +62,6 @@ Pliki nagЁСwkowe i dokumentacja do libsmi.
 Summary:	Static libsmi libraries
 Summary(pl):	Biblioteki statyczne libsmi
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
