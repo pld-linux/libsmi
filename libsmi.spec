@@ -3,12 +3,12 @@ Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
 Summary(ru):	Библиотека для доступа к информации SMI MIB
 Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
-# Source0-md5: 32ed095e5dc67036d48cd8524b4a0b02
+# Source0-md5:	9971096cdb1b21eaca4fd643d0907b1f
 Source1:	%{name}-smi.conf
 Patch0:		%{name}-sysconfdir.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
@@ -118,10 +118,10 @@ libsmi.
 %patch0 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-smi \
@@ -152,6 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/smi.conf
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/mibs
+%{_datadir}/pibs
 
 %files progs
 %defattr(644,root,root,755)
@@ -160,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/draft-irtf-nmrg-sming-*.txt
+%doc doc/draft-irtf-nmrg-smi*.txt
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
