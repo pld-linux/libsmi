@@ -8,6 +8,7 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
+# Source0-md5: 32ed095e5dc67036d48cd8524b4a0b02
 Source1:	%{name}-smi.conf
 Patch0:		%{name}-sysconfdir.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
