@@ -83,7 +83,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
-	COPYING ChangeLog NEWS README THANKS TODO \
+	COPYING ChangeLog README THANKS TODO \
 	doc/{SMI.ps,draft-irtf-nmrg-sming-00.txt}
 
 %find_lang %{name}
