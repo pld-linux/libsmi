@@ -1,6 +1,6 @@
 Summary:	Structure of Management Information library
 Name:		libsmi
-Version:	0.1.7
+Version:	0.1.8
 Release:	1
 Copyright:	distributable (see COPYING file)
 Group:		Libraries
