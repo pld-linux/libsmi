@@ -7,7 +7,7 @@ Group:		Libraries
 Group(pl):	Biblioteki
 Source:		ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr
 
