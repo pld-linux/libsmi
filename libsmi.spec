@@ -4,13 +4,14 @@ Summary(ru):	Библиотека для доступа к информации SMI MIB
 Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
 Version:	0.4.2
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 # Source0-md5:	9971096cdb1b21eaca4fd643d0907b1f
 Source1:	%{name}-smi.conf
 Patch0:		%{name}-sysconfdir.patch
+Patch1:		%{name}-am18.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -116,6 +117,7 @@ libsmi.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -136,7 +138,8 @@ libsmi.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/smi.conf
 
