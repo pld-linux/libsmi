@@ -2,10 +2,12 @@ Summary:	Structure of Management Information library
 Summary(pl):	Biblioteka SMI (Struktur zarz±dzania informacjami)
 Name:		libsmi
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	distributable (see COPYING)
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
+Source1:	%{name}-smi.conf
+Patch0:		%{name}-sysconfdir.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -46,6 +48,18 @@ dostêp do informacji o modu³ach MIB poprzez dobrze zdefiniowane API,
 ukrywaj±ce brzydkie szczegó³y szukania i parsowania modu³ów MIB
 SMIv1/v2.
 
+%package progs
+Summary:	SMI tools
+Summary(pl):	Narzêdzia SMI
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
+
+%description progs
+SMI tools.
+
+%description progs -l pl
+Narzêdzia SMI.
+
 %package devel
 Summary:	Header files and development documentation for libsmi
 Summary(pl):	Pliki nag³ówkowe i dokumentacja do libsmi
@@ -72,6 +86,7 @@ Biblioteki statyczne libsmi.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 rm -f missing
@@ -90,8 +105,11 @@ automake -a -c -f
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/smi.conf
 
 gzip -9nf ChangeLog README THANKS TODO \
 	doc/draft-irtf-nmrg-sming-*.txt
@@ -104,9 +122,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%{_sysconfdir}/smi.conf
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/mibs
+
+%files progs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 
 %files devel
