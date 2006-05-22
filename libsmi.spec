@@ -3,15 +3,13 @@ Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
 Summary(ru):	Библиотека для доступа к информации SMI MIB
 Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
 Name:		libsmi
-Version:	0.4.3
-Release:	2
+Version:	0.4.4
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
-# Source0-md5:	aca6bbeaff025d38c58f26ecbd70b604
+# Source0-md5:	8c87fe16800391ef74c43756634898e2
 Source1:	%{name}-smi.conf
-Patch0:		%{name}-sysconfdir.patch
-Patch1:		%{name}-am18.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -116,8 +114,12 @@ libsmi.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+
+# to be sure to remove workaround when missing file exists
+[ -f tools/dump-svg-script.js ] && exit 1
+# missing dist file, (re)generate from processed version
+sed -e '1d;/^;$/d;s/\\"/"/g;s/\\\\/\\/g;s/\\n"$//;s/^"//;' tools/dump-svg-script.h > tools/dump-svg-script.js
+touch tools/dump-svg-script.h
 
 %build
 %{__libtoolize}
