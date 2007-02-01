@@ -24,29 +24,14 @@ the nasty details of locating and parsing SMIv1/v2 MIB modules.
 Libsmi supports exact and iterative retrieval functions for all major
 SMIv1 and SMIv2 constructs (except the AGENT-CAPABILITIES statement).
 
-The layered concept of libsmi allows to add further methods to
-retrieve MIB information from persistent repositories. In fact,
-besides the SMIv1/v2 MIB file parser an additional parser for `SMIng'
-is included. Both parsers are built on flex/bison grammar
-specifications.
-
-SMIng is a research project concerned with the definition of a MIB
-module language that is semantically fully compatible with SMIv2 but
-avoids many problems of the ASN.1 based SMI versions.
-
-Included with the library, there are three tools that make use of
-libsmi: Smiquery allows simple queries of single MIB module items.
-Smilint allows to increase the verbosity of the parser(s), so that MIB
-modules can be checked for syntax and semantic errors. Finally,
-smidump can be used to dump MIB modules. Currently, SMIng and SMIv2
-are supported as output formats, so that SMIv2 <-> SMIng conversions
-are possible.
-
 %description -l pl
 libsmi jest bibliotek± pozwalaj±c± aplikacjom zarz±dzania sieci± na
 dostÍp do informacji o modu≥ach MIB poprzez dobrze zdefiniowane API,
-ukrywaj±ce brzydkie szczegÛ≥y szukania i parsowania modu≥Ûw MIB
-SMIv1/v2.
+ukrywaj±ce brzydkie szczegÛ≥y szukania i analizy modu≥Ûw MIB SMIv1/v2.
+
+libsmi obs≥uguje dok≥adne i iteruj±ce funkcje odczytuj±ce dla
+wszystkich g≥Ûwnych konstrukcji SMIv1 i SMIv2 (poza instrukcj±
+AGENT-CAPABILITIES).
 
 %description -l ru
 Libsmi - ‹‘œ C ¬…¬Ã…œ‘≈À¡, ƒ¡¿›¡— –“œ«“¡ÕÕ¡Õ ’–“¡◊Ã≈Œ…— ”≈‘ÿ¿ ƒœ”‘’– À
