@@ -1,7 +1,7 @@
 Summary:	Structure of Management Information library
-Summary(pl):	Biblioteka SMI (Struktur zarz╠dzania informacjami)
-Summary(ru):	Библиотека для доступа к информации SMI MIB
-Summary(uk):	Б╕бл╕отека для доступу до ╕нформац╕╖ SMI MIB
+Summary(pl.UTF-8):   Biblioteka SMI (Struktur zarzд┘dzania informacjami)
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ п╢п╩я▐ п╢п╬я│я┌я┐п©п╟ п╨ п╦п╫я└п╬я─п╪п╟я├п╦п╦ SMI MIB
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ п╢п╩я▐ п╢п╬я│я┌я┐п©я┐ п╢п╬ я√п╫я└п╬я─п╪п╟я├я√я≈ SMI MIB
 Name:		libsmi
 Version:	0.4.5
 Release:	1
@@ -24,78 +24,78 @@ the nasty details of locating and parsing SMIv1/v2 MIB modules.
 Libsmi supports exact and iterative retrieval functions for all major
 SMIv1 and SMIv2 constructs (except the AGENT-CAPABILITIES statement).
 
-%description -l pl
-libsmi jest bibliotek╠ pozwalaj╠c╠ aplikacjom zarz╠dzania sieci╠ na
-dostЙp do informacji o moduЁach MIB poprzez dobrze zdefiniowane API,
-ukrywaj╠ce brzydkie szczegСЁy szukania i analizy moduЁСw MIB SMIv1/v2.
+%description -l pl.UTF-8
+libsmi jest bibliotekд┘ pozwalajд┘cд┘ aplikacjom zarzд┘dzania sieciд┘ na
+dostд≥p do informacji o moduе┌ach MIB poprzez dobrze zdefiniowane API,
+ukrywajд┘ce brzydkie szczegцЁе┌y szukania i analizy moduе┌цЁw MIB SMIv1/v2.
 
-libsmi obsЁuguje dokЁadne i iteruj╠ce funkcje odczytuj╠ce dla
-wszystkich gЁСwnych konstrukcji SMIv1 i SMIv2 (poza instrukcj╠
+libsmi obsе┌uguje dokе┌adne i iterujд┘ce funkcje odczytujд┘ce dla
+wszystkich gе┌цЁwnych konstrukcji SMIv1 i SMIv2 (poza instrukcjд┘
 AGENT-CAPABILITIES).
 
-%description -l ru
-Libsmi - это C библиотека, дающая программам управления сетью доступ к
-информационным модулям MIB посредством хорошо определенного API,
-который прячет неприятные детали поиска и разбора модулей SMIv1/v2
+%description -l ru.UTF-8
+Libsmi - я█я┌п╬ C п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟, п╢п╟я▌я┴п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟п╪ я┐п©я─п╟п╡п╩п╣п╫п╦я▐ я│п╣я┌я▄я▌ п╢п╬я│я┌я┐п© п╨
+п╦п╫я└п╬я─п╪п╟я├п╦п╬п╫п╫я▀п╪ п╪п╬п╢я┐п╩я▐п╪ MIB п©п╬я│я─п╣п╢я│я┌п╡п╬п╪ я┘п╬я─п╬я┬п╬ п╬п©я─п╣п╢п╣п╩п╣п╫п╫п╬пЁп╬ API,
+п╨п╬я┌п╬я─я▀п╧ п©я─я▐я┤п╣я┌ п╫п╣п©я─п╦я▐я┌п╫я▀п╣ п╢п╣я┌п╟п╩п╦ п©п╬п╦я│п╨п╟ п╦ я─п╟п╥п╠п╬я─п╟ п╪п╬п╢я┐п╩п╣п╧ SMIv1/v2
 MIB.
 
-%description -l uk
-Libsmi - це C б╕бл╕отека, що нада╓ програмам управл╕ння мережею доступ
-до ╕нформац╕йних модул╕в MIB через добре визначений API, що прихову╓
-непри╓мн╕ детал╕ пошуку та розбору модул╕в SMIv1/v2 MIB.
+%description -l uk.UTF-8
+Libsmi - я├п╣ C п╠я√п╠п╩я√п╬я┌п╣п╨п╟, я┴п╬ п╫п╟п╢п╟я■ п©я─п╬пЁя─п╟п╪п╟п╪ я┐п©я─п╟п╡п╩я√п╫п╫я▐ п╪п╣я─п╣п╤п╣я▌ п╢п╬я│я┌я┐п©
+п╢п╬ я√п╫я└п╬я─п╪п╟я├я√п╧п╫п╦я┘ п╪п╬п╢я┐п╩я√п╡ MIB я┤п╣я─п╣п╥ п╢п╬п╠я─п╣ п╡п╦п╥п╫п╟я┤п╣п╫п╦п╧ API, я┴п╬ п©я─п╦я┘п╬п╡я┐я■
+п╫п╣п©я─п╦я■п╪п╫я√ п╢п╣я┌п╟п╩я√ п©п╬я┬я┐п╨я┐ я┌п╟ я─п╬п╥п╠п╬я─я┐ п╪п╬п╢я┐п╩я√п╡ SMIv1/v2 MIB.
 
 %package progs
 Summary:	SMI tools
-Summary(pl):	NarzЙdzia SMI
+Summary(pl.UTF-8):   Narzд≥dzia SMI
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description progs
 SMI tools.
 
-%description progs -l pl
-NarzЙdzia SMI.
+%description progs -l pl.UTF-8
+Narzд≥dzia SMI.
 
 %package devel
 Summary:	Header files and development documentation for libsmi
-Summary(pl):	Pliki nagЁСwkowe i dokumentacja do libsmi
-Summary(ru):	Хедеры для разработки программ с использованием libsmi
-Summary(uk):	Хедери для розробки програм з використанням libsmi
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe i dokumentacja do libsmi
+Summary(ru.UTF-8):   п╔п╣п╢п╣я─я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ libsmi
+Summary(uk.UTF-8):   п╔п╣п╢п╣я─п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ libsmi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for libsmi.
 
-%description devel -l pl
-Pliki nagЁСwkowe i dokumentacja do libsmi.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe i dokumentacja do libsmi.
 
-%description devel -l ru
-Хедеры для разработки программ с использованием libsmi.
+%description devel -l ru.UTF-8
+п╔п╣п╢п╣я─я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ libsmi.
 
-%description devel -l uk
-Хедери для розробки програм з використанням libsmi.
+%description devel -l uk.UTF-8
+п╔п╣п╢п╣я─п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ libsmi.
 
 %package static
 Summary:	Static libsmi libraries
-Summary(pl):	Biblioteki statyczne libsmi
+Summary(pl.UTF-8):   Biblioteki statyczne libsmi
 Group:		Development/Libraries
-Summary(ru):	Статические библиотеки для разработки программ с использованием libsmi
-Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням libsmi
+Summary(ru.UTF-8):   п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ libsmi
+Summary(uk.UTF-8):   п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ libsmi
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libsmi libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne libsmi.
 
-%description static -l ru
-Статические библиотеки для разработки программ с использованием
+%description static -l ru.UTF-8
+п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪
 libsmi.
 
-%description static -l uk
-Статичн╕ б╕бл╕отеки для розробки програм з використанням libsmi.
+%description static -l uk.UTF-8
+п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ libsmi.
 
 %prep
 %setup -q
