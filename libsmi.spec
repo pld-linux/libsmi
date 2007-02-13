@@ -1,7 +1,7 @@
 Summary:	Structure of Management Information library
-Summary(pl.UTF-8):   Biblioteka SMI (Struktur zarządzania informacjami)
-Summary(ru.UTF-8):   Библиотека для доступа к информации SMI MIB
-Summary(uk.UTF-8):   Бібліотека для доступу до інформації SMI MIB
+Summary(pl.UTF-8):	Biblioteka SMI (Struktur zarządzania informacjami)
+Summary(ru.UTF-8):	Библиотека для доступа к информации SMI MIB
+Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
 Version:	0.4.5
 Release:	1
@@ -46,7 +46,7 @@ Libsmi - це C бібліотека, що надає програмам упр�
 
 %package progs
 Summary:	SMI tools
-Summary(pl.UTF-8):   Narzędzia SMI
+Summary(pl.UTF-8):	Narzędzia SMI
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -58,9 +58,9 @@ Narzędzia SMI.
 
 %package devel
 Summary:	Header files and development documentation for libsmi
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja do libsmi
-Summary(ru.UTF-8):   Хедеры для разработки программ с использованием libsmi
-Summary(uk.UTF-8):   Хедери для розробки програм з використанням libsmi
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do libsmi
+Summary(ru.UTF-8):	Хедеры для разработки программ с использованием libsmi
+Summary(uk.UTF-8):	Хедери для розробки програм з використанням libsmi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -78,10 +78,10 @@ Pliki nagłówkowe i dokumentacja do libsmi.
 
 %package static
 Summary:	Static libsmi libraries
-Summary(pl.UTF-8):   Biblioteki statyczne libsmi
+Summary(pl.UTF-8):	Biblioteki statyczne libsmi
 Group:		Development/Libraries
-Summary(ru.UTF-8):   Статические библиотеки для разработки программ с использованием libsmi
-Summary(uk.UTF-8):   Статичні бібліотеки для розробки програм з використанням libsmi
+Summary(ru.UTF-8):	Статические библиотеки для разработки программ с использованием libsmi
+Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм з використанням libsmi
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
