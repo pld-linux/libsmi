@@ -3,12 +3,12 @@ Summary(pl.UTF-8):	Biblioteka SMI (Struktur zarządzania informacjami)
 Summary(ru.UTF-8):	Библиотека для доступа к информации SMI MIB
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
-Version:	0.4.5
+Version:	0.4.8
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
-# Source0-md5:	c904b124bcaad692e04fdf2f0cff38bb
+# Source0-md5:	760b6b1070738158708649ed2c63425e
 Source1:	%{name}-smi.conf
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
@@ -133,26 +133,28 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ANNOUNCE COPYING ChangeLog README THANKS TODO
-%{_sysconfdir}/smi.conf
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libsmi.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsmi.so.2
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/smi.conf
 %{_datadir}/mibs
 %{_datadir}/pibs
 
 %files progs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/smi*
+%{_mandir}/man1/smi*.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/draft-irtf-nmrg-smi*.txt
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_aclocaldir}/*.m4
-%{_pkgconfigdir}/*.pc
-%{_mandir}/man3/*
+%attr(755,root,root) %{_libdir}/libsmi.so
+%{_libdir}/libsmi.la
+%{_includedir}/smi.h
+%{_aclocaldir}/libsmi.m4
+%{_pkgconfigdir}/libsmi.pc
+%{_mandir}/man3/libsmi.3*
+%{_mandir}/man3/smi_*.3*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libsmi.a
