@@ -4,7 +4,7 @@ Summary(ru.UTF-8):	Библиотека для доступа к информа�
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
 Version:	0.4.8
-Release:	1.6
+Release:	1.9
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
@@ -135,6 +135,60 @@ libsmi.
 %patch0 -p1
 
 find '(' -name '*~' -o -name '*.orig' -o -name '*-orig' ')' -print0 | xargs -0 -r -l512 rm -f
+
+# packaged by mibs-net-snmp
+while read mib; do
+	rm mibs/*/$mib
+done <<'EOF'
+AGENTX-MIB
+DISMAN-EVENT-MIB
+DISMAN-SCHEDULE-MIB
+DISMAN-SCRIPT-MIB
+EtherLike-MIB
+HCNUM-TC
+HOST-RESOURCES-MIB
+HOST-RESOURCES-TYPES
+IANA-ADDRESS-FAMILY-NUMBERS-MIB
+IANAifType-MIB
+IANA-LANGUAGE-MIB
+IANA-RTPROTO-MIB
+IF-INVERTED-STACK-MIB
+IF-MIB
+INET-ADDRESS-MIB
+IP-FORWARD-MIB
+IP-MIB
+IPV6-ICMP-MIB
+IPV6-MIB
+IPV6-TC
+IPV6-TCP-MIB
+IPV6-UDP-MIB
+MTA-MIB
+NETWORK-SERVICES-MIB
+NOTIFICATION-LOG-MIB
+RFC1155-SMI
+RFC1213-MIB
+RFC-1215
+RMON-MIB
+SCTP-MIB
+SNMP-COMMUNITY-MIB
+SNMP-FRAMEWORK-MIB
+SNMP-MPD-MIB
+SNMP-NOTIFICATION-MIB
+SNMP-PROXY-MIB
+SNMP-TARGET-MIB
+SNMP-USER-BASED-SM-MIB
+SNMP-USM-AES-MIB
+SNMP-USM-DH-OBJECTS-MIB
+SNMPv2-CONF
+SNMPv2-MIB
+SNMPv2-SMI
+SNMPv2-TC
+SNMPv2-TM
+SNMP-VIEW-BASED-ACM-MIB
+TCP-MIB
+TRANSPORT-ADDRESS-MIB
+UDP-MIB
+EOF
 
 %build
 %{__libtoolize}
