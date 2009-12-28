@@ -1,0 +1,66 @@
+--- libsmi-0.4.8/mibs/iana/Makefile.am~	2007-03-05 16:59:31.000000000 +0200
++++ libsmi-0.4.8/mibs/iana/Makefile.am	2009-12-28 13:08:46.722764909 +0200
+@@ -11,7 +11,7 @@
+ # @(#) $Id$
+ #
+ 
+-ianadir			= $(mibdir)/iana
++ianadir			= $(mibdir)
+ MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
+ EXTRA_DIST		= $(MIBS)
+ iana_DATA		= $(MIBS)
+--- libsmi-0.4.8/mibs/ietf/Makefile.am~	2005-11-25 11:13:42.000000000 +0200
++++ libsmi-0.4.8/mibs/ietf/Makefile.am	2009-12-28 13:08:58.476097215 +0200
+@@ -11,7 +11,7 @@
+ # @(#) $Id$
+ #
+ 
+-ietfdir			= $(mibdir)/ietf
++ietfdir			= $(mibdir)
+ MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
+ EXTRA_DIST              = $(MIBS)
+ ietf_DATA		= $(MIBS)
+--- libsmi-0.4.8/mibs/site/Makefile.am~	2005-11-25 11:13:25.000000000 +0200
++++ libsmi-0.4.8/mibs/site/Makefile.am	2009-12-28 13:09:17.119221119 +0200
+@@ -11,7 +11,7 @@
+ # @(#) $Id$
+ #
+ 
+-sitedir			= $(mibdir)/site
++sitedir			= $(mibdir)
+ MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
+ EXTRA_DIST              = $(MIBS)
+ site_DATA		= $(MIBS)
+--- libsmi-0.4.8/mibs/tubs/Makefile.am~	2005-11-25 11:13:49.000000000 +0200
++++ libsmi-0.4.8/mibs/tubs/Makefile.am	2009-12-28 13:09:30.755886732 +0200
+@@ -11,7 +11,7 @@
+ # @(#) $Id$
+ #
+ 
+-tubsdir			= $(mibdir)/tubs
++tubsdir			= $(mibdir)
+ MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
+ EXTRA_DIST              = $(MIBS)
+ tubs_DATA		= $(MIBS)
+--- libsmi-0.4.8/mibs/irtf/Makefile.am~	2005-11-25 11:13:24.000000000 +0200
++++ libsmi-0.4.8/mibs/irtf/Makefile.am	2009-12-28 13:12:48.902601414 +0200
+@@ -11,7 +11,7 @@
+ # @(#) $Id$
+ #
+ 
+-irtfdir			= $(mibdir)/irtf
++irtfdir			= $(mibdir)
+ MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
+ EXTRA_DIST              = $(MIBS)
+ irtf_DATA		= $(MIBS)
+--- libsmi-0.4.8/pibs/Makefile.am~	2005-11-25 11:13:54.000000000 +0200
++++ libsmi-0.4.8/pibs/Makefile.am	2009-12-28 13:13:56.989192666 +0200
+@@ -16,8 +16,3 @@
+ PIBS			= $(shell ls -1d [a-z]*/* | egrep -v 'CVS|Makefile')
+ pib_DATA		= $(PIBS)
+ SUBDIRS			= $(PIBDIRS)
+-
+-install-exec-local:
+-	for dir in $(PIBDIRS) ; do \
+-		$(mkinstalldirs) $(DESTDIR)$(pibdir)/$$dir ; \
+-	done

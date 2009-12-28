@@ -4,12 +4,13 @@ Summary(ru.UTF-8):	Библиотека для доступа к информа�
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
 Version:	0.4.8
-Release:	1.5
+Release:	1.6
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 # Source0-md5:	760b6b1070738158708649ed2c63425e
 Source1:	%{name}-smi.conf
+Patch0:		flat-mibdir.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -131,6 +132,7 @@ libsmi.
 
 %prep
 %setup -q
+%patch0 -p1
 
 find '(' -name '*~' -o -name '*.orig' -o -name '*-orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
@@ -145,7 +147,9 @@ find '(' -name '*~' -o -name '*.orig' -o -name '*-orig' ')' -print0 | xargs -0 -
 	--enable-sming \
 	--enable-shared \
 	--enable-static \
-	--with-mibdir=%{_datadir}/mibs
+	--with-mibdir=%{_datadir}/mibs \
+	--with-pibdir=%{_datadir}/pibs \
+	--with-smipath=%{_datadir}/mibs:%{_datadir}/pibs
 
 %{__make}
 
@@ -159,8 +163,8 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/smi.conf
 
 # .index files produced by net-snmp
-touch $RPM_BUILD_ROOT%{_datadir}/mibs/{,iana,ietf,irtf,site,tubs}/.index
-touch $RPM_BUILD_ROOT%{_datadir}/pibs/{,ietf,site,tubs}/.index
+touch $RPM_BUILD_ROOT%{_datadir}/mibs/.index
+touch $RPM_BUILD_ROOT%{_datadir}/pibs/.index
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -183,42 +187,20 @@ rm -rf $RPM_BUILD_ROOT
 %files -n mibs-dirs
 %defattr(644,root,root,755)
 %dir %{_datadir}/mibs
-%dir %{_datadir}/mibs/iana
-%dir %{_datadir}/mibs/ietf
-%dir %{_datadir}/mibs/irtf
-%dir %{_datadir}/mibs/site
-%dir %{_datadir}/mibs/tubs
-
 %ghost %{_datadir}/mibs/.index
-%ghost %{_datadir}/mibs/iana/.index
-%ghost %{_datadir}/mibs/ietf/.index
-%ghost %{_datadir}/mibs/irtf/.index
-%ghost %{_datadir}/mibs/site/.index
-%ghost %{_datadir}/mibs/tubs/.index
 
 %files -n pibs-dirs
 %defattr(644,root,root,755)
 %dir %{_datadir}/pibs
-%dir %{_datadir}/pibs/ietf
-%dir %{_datadir}/pibs/site
-%dir %{_datadir}/pibs/tubs
-
 %ghost %{_datadir}/pibs/.index
-%ghost %{_datadir}/pibs/ietf/.index
-%ghost %{_datadir}/pibs/site/.index
-%ghost %{_datadir}/pibs/tubs/.index
 
 %files -n mibs-libsmi
 %defattr(644,root,root,755)
-%{_datadir}/mibs/iana/*
-%{_datadir}/mibs/ietf/*
-%{_datadir}/mibs/irtf/*
-%{_datadir}/mibs/tubs/*
+%{_datadir}/mibs/*
 
 %files -n pibs-libsmi
 %defattr(644,root,root,755)
-%{_datadir}/pibs/COPS-PR-SPPI*
-%{_datadir}/pibs/*-PIB
+%{_datadir}/pibs/*
 
 %files devel
 %defattr(644,root,root,755)
