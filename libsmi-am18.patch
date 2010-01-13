@@ -1,0 +1,11 @@
+--- libsmi-0.4.2/libsmi.m4.orig	Wed Jan 31 12:59:48 2001
++++ libsmi-0.4.2/libsmi.m4	Fri Dec 19 12:39:39 2003
+@@ -5,7 +5,7 @@
+ dnl successful. Also defines HAVE_LIBSMI_H and adds -llibsmi to the 
+ dnl LIBS variable.
+ dnl 
+-AC_DEFUN(AM_PATH_LIBSMI,
++AC_DEFUN([AM_PATH_LIBSMI],
+ [
+   AC_CHECK_HEADERS(smi.h)
+   AC_CHECK_LIB(smi, smiInit)
