@@ -4,7 +4,7 @@ Summary(ru.UTF-8):	Библиотека для доступа к информа�
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
 Version:	0.4.8
-Release:	3
+Release:	4
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
@@ -225,6 +225,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
+
+%post	-n mibs-dirs -p <lua>
+posix.utime("%{_datadir}/mibs");
+
+%post	-n pibs-dirs -p <lua>
+posix.utime("%{_datadir}/pibs");
 
 %files
 %defattr(644,root,root,755)
