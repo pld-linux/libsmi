@@ -47,48 +47,6 @@ Libsmi - це C бібліотека, що надає програмам упр�
 до інформаційних модулів MIB через добре визначений API, що приховує
 неприємні деталі пошуку та розбору модулів SMIv1/v2 MIB.
 
-%package progs
-Summary:	SMI tools
-Summary(pl.UTF-8):	Narzędzia SMI
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-
-%description progs
-SMI tools.
-
-%description progs -l pl.UTF-8
-Narzędzia SMI.
-
-%package -n mibs-dirs
-Summary:	Common directories for MIBs
-Group:		Base
-
-%description -n mibs-dirs
-Common directories for MIBs (Management Information Base).
-
-%package -n pibs-dirs
-Summary:	LibSMI provided PIBs
-Group:		Base
-
-%description -n pibs-dirs
-Common directories for PIBs (Policy Information Base).
-
-%package -n mibs-libsmi
-Summary:	LibSMI provided MIBs
-Group:		Base
-Requires:	mibs-dirs
-
-%description -n mibs-libsmi
-LibSMI provided MIBs (Management Information Base).
-
-%package -n pibs-libsmi
-Summary:	LibSMI provided PIBs
-Group:		Base
-Requires:	pibs-dirs
-
-%description -n pibs-libsmi
-LibSMI provided PIBs (Policy Information Base).
-
 %package devel
 Summary:	Header files and development documentation for libsmi
 Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do libsmi
@@ -129,6 +87,64 @@ libsmi.
 
 %description static -l uk.UTF-8
 Статичні бібліотеки для розробки програм з використанням libsmi.
+
+%package progs
+Summary:	SMI tools
+Summary(pl.UTF-8):	Narzędzia SMI
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description progs
+SMI tools.
+
+%description progs -l pl.UTF-8
+Narzędzia SMI.
+
+%package -n mibs-dirs
+Summary:	Common directories for MIBs
+Summary(pl.UTF-8):	Wspólne katalogi dla MIB-ów
+Group:		Base
+
+%description -n mibs-dirs
+Common directories for MIBs (Management Information Base).
+
+%description -n mibs-dirs -l pl.UTF-8
+Wspólne katalogi dla danych MIB (Management Information Base).
+
+%package -n pibs-dirs
+Summary:	Common directories for PIBs
+Summary(pl.UTF-8):	Wspólne katalogi dla PIB-ów
+Group:		Base
+
+%description -n pibs-dirs
+Common directories for PIBs (Policy Information Base).
+
+%description -n pibs-dirs -l pl.UTF-8
+Wspólne katalogi dla danych PIB (Policy Information Base).
+
+%package -n mibs-libsmi
+Summary:	LibSMI provided MIBs
+Summary(pl.UTF-8):	MIB-y dostarczane przez LibSMI
+Group:		Base
+Requires:	mibs-dirs
+
+%description -n mibs-libsmi
+LibSMI provided MIBs (Management Information Base).
+
+%description -n mibs-libsmi -l pl.UTF-8
+Dane MIB (Management Information Base) dostarczane przez LibSMI.
+
+%package -n pibs-libsmi
+Summary:	LibSMI provided PIBs
+Summary(pl.UTF-8):	PIB-y dostarczane przez LibSMI
+Group:		Base
+Requires:	pibs-dirs
+
+%description -n pibs-libsmi
+LibSMI provided PIBs (Policy Information Base).
+
+%description -n pibs-libsmi -l pl.UTF-8
+Dane PIB (Policy Information Base) dostarczane przez LibSMI.
 
 %prep
 %setup -q
@@ -239,6 +255,21 @@ posix.utime("%{_datadir}/pibs");
 %attr(755,root,root) %{_libdir}/libsmi.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsmi.so.2
 
+%files devel
+%defattr(644,root,root,755)
+%doc doc/draft-irtf-nmrg-smi*.txt
+%attr(755,root,root) %{_libdir}/libsmi.so
+%{_libdir}/libsmi.la
+%{_includedir}/smi.h
+%{_aclocaldir}/libsmi.m4
+%{_pkgconfigdir}/libsmi.pc
+%{_mandir}/man3/libsmi.3*
+%{_mandir}/man3/smi_*.3*
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libsmi.a
+
 %files progs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/smi*
@@ -261,18 +292,3 @@ posix.utime("%{_datadir}/pibs");
 %files -n pibs-libsmi
 %defattr(644,root,root,755)
 %{_datadir}/pibs/*
-
-%files devel
-%defattr(644,root,root,755)
-%doc doc/draft-irtf-nmrg-smi*.txt
-%attr(755,root,root) %{_libdir}/libsmi.so
-%{_libdir}/libsmi.la
-%{_includedir}/smi.h
-%{_aclocaldir}/libsmi.m4
-%{_pkgconfigdir}/libsmi.pc
-%{_mandir}/man3/libsmi.3*
-%{_mandir}/man3/smi_*.3*
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/libsmi.a
