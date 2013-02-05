@@ -1,0 +1,11 @@
+--- libsmi-0.4.8/configure.in.newautomake	2013-02-05 12:56:47.028569291 +0100
++++ libsmi-0.4.8/configure.in	2013-02-05 12:56:58.745172483 +0100
+@@ -24,7 +24,7 @@ VERSION_STRING="$LIBSMI_MAJOR.$LIBSMI_MI
+ VERSION_LIBTOOL="$LIBTOOL_VERSION:$LIBTOOL_REVISION:$LIBTOOL_AGE"
+ 
+ AM_INIT_AUTOMAKE(libsmi,$VERSION_STRING)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ 
+ AC_DEFINE([MAX_LEX_DEPTH], 30,
+ [The maximum module import recursion depth.])

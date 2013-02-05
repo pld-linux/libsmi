@@ -11,6 +11,8 @@ Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
 # Source0-md5:	760b6b1070738158708649ed2c63425e
 Source1:	%{name}-smi.conf
 Patch0:		flat-mibdir.patch
+Patch1:		%{name}-am.patch
+Patch2:		%{name}-format-security.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -149,6 +151,8 @@ Dane PIB (Policy Information Base) dostarczane przez LibSMI.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 find '(' -name '*~' -o -name '*.orig' -o -name '*-orig' ')' -print0 | xargs -0 -r -l512 rm -f
 

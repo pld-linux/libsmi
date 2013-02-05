@@ -1,0 +1,20 @@
+--- libsmi-0.4.8/tools/dump-tree.c.formatsec	2013-02-05 13:00:54.907226417 +0100
++++ libsmi-0.4.8/tools/dump-tree.c	2013-02-05 13:01:49.217530638 +0100
+@@ -117,7 +117,7 @@ static void fprintIndex(FILE *f, SmiNode
+ 	 smiElement; smiElement = smiGetNextElement(smiElement), i++) {
+ 	if (i > 0) fprintf(f, ",");
+ 	if (indexname) {
+-	    fprintf(f, indexname);
++	    fputs(indexname, f);
+ 	}
+ 	indexname = smiGetElementNode(smiElement)->name;
+     }
+@@ -143,7 +143,7 @@ static void fprintObjects(FILE *f, SmiNo
+ 	 smiElement = smiGetNextElement(smiElement), i++) {
+ 	if (i > 0) fprintf(f, ",");
+ 	if (objectname) {
+-	    fprintf(f, objectname);
++	    fputs(objectname, f);
+ 	}
+ 	objectname = smiGetElementNode(smiElement)->name;
+     }
