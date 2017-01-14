@@ -1,0 +1,107 @@
+--- libsmi-0.5.0/lib/parser-sming.y.orig	2014-10-11 18:08:25.000000000 +0200
++++ libsmi-0.5.0/lib/parser-sming.y	2017-01-13 21:50:23.845828181 +0100
+@@ -20,6 +20,7 @@
+     
+ #ifdef BACKEND_SMING
+ 
++#define _DEFAULT_SOURCE
+ #define _ISOC99_SOURCE
+ #include <stdio.h>
+ #include <errno.h>
+@@ -349,7 +350,7 @@ static void createBitsValue(SmiValue *va
+  * We call the parser from within the parser when IMPORTing modules,
+  * hence we need reentrant parser code. This is a bison feature.
+  */
+-%pure_parser
++%pure-parser
+ 
+ 
+ 
+@@ -1550,7 +1551,7 @@ identityStatement:	identityKeyword sep l
+ 			referenceStatement_stmtsep_01
+ 			{
+ 				setIdentityReference(identityPtr, $14, 
+-									 thisParserPtr)
++									 thisParserPtr);
+ 			}
+ 			'}' optsep ';'
+ 			{
+@@ -2153,9 +2154,9 @@ attribute_refinedBaseType:	OctetStringKe
+ 			    $$ = duplicateTypeToAttribute(smiHandle->typeBitsPtr,
+ 							  classPtr, thisParserPtr);
+ 			    setAttributeParentType($$, smiHandle->typeBitsPtr);
+-			    if ($1) {
+-				setAttributeList($$, $1);
+-				for (p = $1; p; p = p->nextPtr)
++			    if ($3) {
++				setAttributeList($$, $3);
++				for (p = $3; p; p = p->nextPtr)
+ 				    ((NamedNumber *)(p->ptr))->typePtr = (Type*)$$;
+ 			    }
+ 			    
+--- libsmi-0.5.0/lib/smi-check.c.orig	2013-06-04 14:34:00.000000000 +0200
++++ libsmi-0.5.0/lib/smi-check.c	2017-01-13 20:53:43.132533676 +0100
+@@ -2261,7 +2261,7 @@ smiCheckModuleIdentityRegistration(Parse
+  *
+  *----------------------------------------------------------------------
+  */
+-void smiyyerror(char *msg, Parser *parserPtr)
++void smiyyerror(const char *msg, Parser *parserPtr)
+ {
+     if (parserPtr->line == parserPtr->lcline &&
+ 	parserPtr->modulePtr &&
+--- libsmi-0.5.0/lib/smi-check.h.orig	2013-06-04 14:34:00.000000000 +0200
++++ libsmi-0.5.0/lib/smi-check.h	2017-01-13 20:53:26.592533866 +0100
+@@ -68,6 +68,6 @@ extern void smiCheckUniqueness(Parser *p
+ 
+ extern void smiCheckModuleIdentityRegistration(Parser *parser, Object *object);
+ 
+-extern void smiyyerror(char *msg, Parser *parserPtr);
++extern void smiyyerror(const char *msg, Parser *parserPtr);
+ 
+ #endif /* _CHECK_H */
+--- libsmi-0.5.0/lib/parser-yang.y.orig	2014-10-11 17:58:53.000000000 +0200
++++ libsmi-0.5.0/lib/parser-yang.y	2017-01-13 22:01:16.995820722 +0100
+@@ -20,6 +20,7 @@
+     
+ #ifdef BACKEND_YANG
+ 
++#define _DEFAULT_SOURCE
+ #define _ISOC99_SOURCE
+ #include <stdio.h>
+ #include <errno.h>
+@@ -35,12 +36,14 @@
+ #endif
+ 
+ #include "yang.h"
++#include "yang-check.h"
+ #include "yang-data.h"
+ #include "parser-yang.h"
+ #include "scanner-yang.h"
+ #include "yang-complex-types.h"
+ #include "util.h"
+ #include "error.h"
++#include "smi-check.h"
+     
+ #ifdef HAVE_DMALLOC_H
+ #include <dmalloc.h>
+@@ -268,7 +271,7 @@ checkDate(Parser *parserPtr, char *date)
+  * We call the parser from within the parser when IMPORTing modules,
+  * hence we need reentrant parser code. This is a bison feature.
+  */
+-%pure_parser
++%pure-parser
+ 
+ /*
+  * The attributes.
+--- libsmi-0.5.0/lib/yang-data.h.orig	2013-06-04 14:34:00.000000000 +0200
++++ libsmi-0.5.0/lib/yang-data.h	2017-01-13 22:02:53.482486288 +0100
+@@ -164,6 +164,8 @@ int removeYangNode(_YangNode* target, _Y
+ 
+ _YangModuleInfo *createModuleInfo(_YangNode *modulePtr);
+ 
++void createIdentifierRef(_YangNode *node, char* prefix, char* ident);
++
+ void createTypeInfo(_YangNode *node);
+ 
+ _YangNode *findYangModuleByName(const char *modulename, char* revision);

@@ -3,19 +3,20 @@ Summary(pl.UTF-8):	Biblioteka SMI (Struktur zarządzania informacjami)
 Summary(ru.UTF-8):	Библиотека для доступа к информации SMI MIB
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
-Version:	0.4.8
-Release:	6
+Version:	0.5.0
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/%{name}-%{version}.tar.gz
-# Source0-md5:	760b6b1070738158708649ed2c63425e
+Source0:	http://www.ibr.cs.tu-bs.de/projects/libsmi/download/%{name}-%{version}.tar.gz
+# Source0-md5:	4bf47483c06c9f07d1b10fbc74eddf11
 Source1:	%{name}-smi.conf
 Patch0:		flat-mibdir.patch
-Patch1:		%{name}-am.patch
-Patch2:		%{name}-format-security.patch
+Patch1:		%{name}-bison.patch
 URL:		http://www.ibr.cs.tu-bs.de/projects/libsmi/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	libtool
 Suggests:	mibs-libsmi
 Suggests:	pibs-libsmi
@@ -93,7 +94,7 @@ libsmi.
 %package progs
 Summary:	SMI tools
 Summary(pl.UTF-8):	Narzędzia SMI
-Group:		Development/Libraries
+Group:		Networking
 Requires:	%{name} = %{version}-%{release}
 
 %description progs
@@ -101,6 +102,18 @@ SMI tools.
 
 %description progs -l pl.UTF-8
 Narzędzia SMI.
+
+%package yang
+Summary:	SMI data in Yang format
+Summary(pl.UTF-8):	Dane SMI w formacie Yang
+Group:		Networking
+Requires:	%{name} = %{version}-%{release}
+
+%description yang
+SMI data in Yang format.
+
+%description yang -l pl.UTF-8
+Dane SMI w formacie Yang.
 
 %package -n mibs-dirs
 Summary:	Common directories for MIBs
@@ -152,13 +165,15 @@ Dane PIB (Policy Information Base) dostarczane przez LibSMI.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 find '(' -name '*~' -o -name '*.orig' -o -name '*-orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
+# force rebuild
+touch lib/scanner-sming.l
+
 # packaged by mibs-net-snmp
 while read mib; do
-	rm mibs/*/$mib
+	%{__rm} mibs/*/$mib
 done <<'EOF'
 AGENTX-MIB
 DISMAN-EVENT-MIB
@@ -223,7 +238,7 @@ EOF
 	--enable-static \
 	--with-mibdir=%{_datadir}/mibs \
 	--with-pibdir=%{_datadir}/pibs \
-	--with-smipath=%{_datadir}/mibs:%{_datadir}/pibs
+	--with-smipath=%{_datadir}/mibs:%{_datadir}/pibs:%{_datadir}/yang/ietf:%{_datadir}/yang/iana:%{_datadir}/yang/site
 
 %{__make}
 
@@ -265,10 +280,12 @@ posix.utime("%{_datadir}/pibs");
 %attr(755,root,root) %{_libdir}/libsmi.so
 %{_libdir}/libsmi.la
 %{_includedir}/smi.h
+%{_includedir}/yang.h
 %{_aclocaldir}/libsmi.m4
 %{_pkgconfigdir}/libsmi.pc
 %{_mandir}/man3/libsmi.3*
 %{_mandir}/man3/smi_*.3*
+%{_mandir}/man3/yang_node.3*
 
 %files static
 %defattr(644,root,root,755)
@@ -278,6 +295,10 @@ posix.utime("%{_datadir}/pibs");
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/smi*
 %{_mandir}/man1/smi*.1*
+
+%files yang
+%defattr(644,root,root,755)
+%{_datadir}/yang
 
 %files -n mibs-dirs
 %defattr(644,root,root,755)
