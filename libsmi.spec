@@ -4,7 +4,7 @@ Summary(ru.UTF-8):	Библиотека для доступа к информа�
 Summary(uk.UTF-8):	Бібліотека для доступу до інформації SMI MIB
 Name:		libsmi
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	http://www.ibr.cs.tu-bs.de/projects/libsmi/download/%{name}-%{version}.tar.gz

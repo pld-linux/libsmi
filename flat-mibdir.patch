@@ -1,7 +1,7 @@
---- libsmi-0.4.8/mibs/iana/Makefile.am~	2007-03-05 16:59:31.000000000 +0200
-+++ libsmi-0.4.8/mibs/iana/Makefile.am	2009-12-28 13:08:46.722764909 +0200
+--- libsmi-0.5.0/mibs/iana/Makefile.am~	2014-08-15 07:32:46.000000000 +0000
++++ libsmi-0.5.0/mibs/iana/Makefile.am	2022-09-27 15:00:00.851667841 +0000
 @@ -11,7 +11,7 @@
- # @(#) $Id$
+ # @(#) $Id: Makefile.am 1810 2014-08-15 07:32:45Z schoenw $
  #
  
 -ianadir			= $(mibdir)/iana
@@ -9,10 +9,10 @@
  MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
  EXTRA_DIST		= $(MIBS)
  iana_DATA		= $(MIBS)
---- libsmi-0.4.8/mibs/ietf/Makefile.am~	2005-11-25 11:13:42.000000000 +0200
-+++ libsmi-0.4.8/mibs/ietf/Makefile.am	2009-12-28 13:08:58.476097215 +0200
+--- libsmi-0.5.0/mibs/ietf/Makefile.am~	2013-06-04 12:33:59.000000000 +0000
++++ libsmi-0.5.0/mibs/ietf/Makefile.am	2022-09-27 15:01:39.373255567 +0000
 @@ -11,7 +11,7 @@
- # @(#) $Id$
+ # @(#) $Id: Makefile.am 1104 2003-12-01 12:24:15Z strauss $
  #
  
 -ietfdir			= $(mibdir)/ietf
@@ -20,10 +20,10 @@
  MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
  EXTRA_DIST              = $(MIBS)
  ietf_DATA		= $(MIBS)
---- libsmi-0.4.8/mibs/site/Makefile.am~	2005-11-25 11:13:25.000000000 +0200
-+++ libsmi-0.4.8/mibs/site/Makefile.am	2009-12-28 13:09:17.119221119 +0200
+--- libsmi-0.5.0/mibs/site/Makefile.am~	2013-06-04 12:33:59.000000000 +0000
++++ libsmi-0.5.0/mibs/site/Makefile.am	2022-09-27 15:02:21.233978119 +0000
 @@ -11,7 +11,7 @@
- # @(#) $Id$
+ # @(#) $Id: Makefile.am 1105 2003-12-01 19:01:38Z strauss $
  #
  
 -sitedir			= $(mibdir)/site
@@ -31,10 +31,10 @@
  MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
  EXTRA_DIST              = $(MIBS)
  site_DATA		= $(MIBS)
---- libsmi-0.4.8/mibs/tubs/Makefile.am~	2005-11-25 11:13:49.000000000 +0200
-+++ libsmi-0.4.8/mibs/tubs/Makefile.am	2009-12-28 13:09:30.755886732 +0200
+--- libsmi-0.5.0/mibs/tubs/Makefile.am~	2013-06-04 12:33:59.000000000 +0000
++++ libsmi-0.5.0/mibs/tubs/Makefile.am	2022-09-27 15:02:57.731295538 +0000
 @@ -11,7 +11,7 @@
- # @(#) $Id$
+ # @(#) $Id: Makefile.am 1105 2003-12-01 19:01:38Z strauss $
  #
  
 -tubsdir			= $(mibdir)/tubs
@@ -42,10 +42,10 @@
  MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
  EXTRA_DIST              = $(MIBS)
  tubs_DATA		= $(MIBS)
---- libsmi-0.4.8/mibs/irtf/Makefile.am~	2005-11-25 11:13:24.000000000 +0200
-+++ libsmi-0.4.8/mibs/irtf/Makefile.am	2009-12-28 13:12:48.902601414 +0200
+--- libsmi-0.5.0/mibs/irtf/Makefile.am~	2013-06-04 12:33:59.000000000 +0000
++++ libsmi-0.5.0/mibs/irtf/Makefile.am	2022-09-27 15:04:39.206528730 +0000
 @@ -11,7 +11,7 @@
- # @(#) $Id$
+ # @(#) $Id: Makefile.am 1105 2003-12-01 19:01:38Z strauss $
  #
  
 -irtfdir			= $(mibdir)/irtf
@@ -53,8 +53,8 @@
  MIBS			= $(shell ls -1 $(srcdir) | egrep -v 'CVS|Makefile')
  EXTRA_DIST              = $(MIBS)
  irtf_DATA		= $(MIBS)
---- libsmi-0.4.8/pibs/Makefile.am~	2005-11-25 11:13:54.000000000 +0200
-+++ libsmi-0.4.8/pibs/Makefile.am	2009-12-28 13:13:56.989192666 +0200
+--- libsmi-0.5.0/pibs/Makefile.am~	2013-06-04 12:34:00.000000000 +0000
++++ libsmi-0.5.0/pibs/Makefile.am	2022-09-27 15:05:40.017723362 +0000
 @@ -16,8 +16,3 @@
  PIBS			= $(shell ls -1d [a-z]*/* | egrep -v 'CVS|Makefile')
  pib_DATA		= $(PIBS)
